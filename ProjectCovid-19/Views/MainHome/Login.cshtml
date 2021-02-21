@@ -1,0 +1,53 @@
+﻿@model ProjectCovid_19.Models.Login
+
+@{
+    ViewBag.Title = "Login";
+}
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+<div class="container center_div">
+    <center>
+
+        <h2 class="col-md-10">Login</h2>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @*<div class="form-group">
+        @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label col-md-2" })*@
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Username, new { htmlAttributes = new { placeholder = "Username", @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+            <br />
+        </div>
+        @*</div>*@
+
+        @*<div class="form-group">
+        @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })*@
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { placeholder = "Password", @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+            <br />
+        </div>
+        @*</div>*@@*col-md-offset-2 col-md-10*@
+
+        <div class="form-group">
+            <div class="col-md-10">
+                <input type="submit" value="Login" class="btn btn-info" />
+            </div>
+        </div>
+    </center>
+</div>
+   
+}
+<style>
+
+    body {
+        background-color: rgb(243,243,255);
+    }
+</style>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
